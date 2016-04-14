@@ -1,0 +1,19 @@
+{
+  "name": "uekplan-model",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uekplan/model.git"
+  },
+  "author": "Przemysław Płyś",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/uekplan/model/issues"
+  },
+  "homepage": "https://github.com/uekplan/model#readme"
+}
