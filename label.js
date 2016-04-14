@@ -13,7 +13,7 @@ var LabelSchema = mongoose.Schema({
     value: {
         type: String,
         trim: true
-    }
+    },
     type: {
         type: String,
         enum: [
