@@ -1,5 +1,5 @@
 {
-  "name": "uekplan-model",
+  "name": "uekplan-models",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uekplan/model.git"
+    "url": "git+https://github.com/uekplan/models.git"
   },
   "author": "Przemysław Płyś",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/uekplan/model/issues"
+    "url": "https://github.com/uekplan/models/issues"
   },
-  "homepage": "https://github.com/uekplan/model#readme"
+  "homepage": "https://github.com/uekplan/models#readme"
 }
