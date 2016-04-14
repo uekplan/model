@@ -33,7 +33,7 @@ var LabelSchema = mongoose.Schema({
         require: true,
         default: '?'
     },
-    moodleId: {type: Number}
+    moodleId: {type: Number},
     parentId: {type: mongoose.Schema.Types.ObjectId}
 });
 LabelSchema.methods.getKey = function () {
