@@ -46,7 +46,7 @@ var LabelSchema = mongoose.Schema({
         index: true
     }
 });
-User.index({id: 1, key: 1}, {unique: true});
+LabelSchema.index({id: 1, key: 1}, {unique: true});
 LabelSchema.methods.getKey = function () {
     return this.get('key');
 }
