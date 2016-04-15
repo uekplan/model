@@ -34,6 +34,7 @@ var LabelSchema = mongoose.Schema({
         default: '?'
     },
     moodleId: {type: Number},
+    parentText: {type: String},
     parentId: {type: mongoose.Schema.Types.ObjectId}
 });
 LabelSchema.methods.getKey = function () {
