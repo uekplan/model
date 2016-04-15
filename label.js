@@ -14,7 +14,7 @@ var LabelSchema = mongoose.Schema({
     value: {
         type: String,
         trim: true,
-        index:true
+        index: true
     },
     type: {
         type: String,
@@ -29,6 +29,8 @@ var LabelSchema = mongoose.Schema({
             'N',
             //Field
             'F',
+            //Surname
+            'C',
             //Unknown to validate
             '?'
         ],
@@ -44,6 +46,9 @@ var LabelSchema = mongoose.Schema({
     parentId: {
         type: mongoose.Schema.Types.ObjectId,
         index: true
+    }, orginal: {
+        type: Boolean,
+        default: true
     }
 });
 LabelSchema.index({id: 1, key: 1}, {unique: true});
