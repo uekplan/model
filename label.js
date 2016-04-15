@@ -8,11 +8,13 @@ var LabelSchema = mongoose.Schema({
     key: {
         type: String,
         require: true,
-        trim: true
+        trim: true,
+        index: true
     },
     value: {
         type: String,
-        trim: true
+        trim: true,
+        index:true
     },
     type: {
         type: String,
@@ -31,12 +33,20 @@ var LabelSchema = mongoose.Schema({
             '?'
         ],
         require: true,
-        default: '?'
+        default: '?',
+        index: true
     },
     moodleId: {type: Number},
-    parentText: {type: String},
-    parentId: {type: mongoose.Schema.Types.ObjectId}
+    parentText: {
+        type: String,
+        trim: true
+    },
+    parentId: {
+        type: mongoose.Schema.Types.ObjectId,
+        index: true
+    }
 });
+User.index({id: 1, key: 1}, {unique: true})
 LabelSchema.methods.getKey = function () {
     return this.get('key');
 }
