@@ -46,11 +46,12 @@ var LabelSchema = mongoose.Schema({
     parentId: {
         type: mongoose.Schema.Types.ObjectId,
         index: true
-    }, orginal: {
+    },
+    orginal: {
         type: Boolean,
         default: true
     }
-});
+}, {timestamps: true});
 LabelSchema.index({id: 1, key: 1}, {unique: true});
 LabelSchema.methods.getKey = function () {
     return this.get('key');

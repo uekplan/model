@@ -17,27 +17,23 @@ var EventSchema = mongoose.Schema({
         type: String,
         trim: true
     },
-    tutors: [mongoose.Schema.Types.ObjectId],
+    tutor: {type: mongoose.Schema.Types.ObjectId},
     placesText: {
         type: String,
         trim: true
     },
-    places: [mongoose.Schema.Types.ObjectId],
+    place: {type: mongoose.Schema.Types.ObjectId},
     groupsText: {
         type: String,
         trim: true
     },
-    groups: [mongoose.Schema.Types.ObjectId],
+    group: {type: mongoose.Schema.Types.ObjectId},
     note: {
         type: String,
         trim: true
     },
-    fields: {type: mongoose.Schema.Types.ObjectId},
+    field: {type: mongoose.Schema.Types.ObjectId},
     blockBegin: {type: String},
-    blockEnd: {type: String},
-    custom: {
-        type: Boolean,
-        default: false
-    }
-});
+    blockEnd: {type: String}
+}, {timestamps: true});
 module.exports = mongoose.model('Event', EventSchema);
