@@ -1,39 +1,62 @@
 'use strict';
-var mongoose = require('mongoose');
-var EventSchema = mongoose.Schema({
-    date: {type: String},
-    day: {type: String},
-    from: {type: String},
-    to: {type: String},
+const sequelize = require('sequelize');
+var Event = sequelize.define('label', {
+    id: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true
+    },
+    date: {
+        type: Sequelize.DATE,
+        autoIncrement: true
+    },
+    day: {
+        type: Sequelize.STRING
+    },
+    from: {
+        type: Sequelize.STRING
+    },
+    to: {
+        type: Sequelize.STRING
+    },
     activity: {
-        type: String,
-        trim: true
+        type: Sequelize.STRING
+    }, type: {
+        type: Sequelize.STRING
     },
-    type: {
-        type: String,
-        trim: true
+    tutorId: {
+        type: Sequelize.INTEGER
     },
-    tutorsText: {
-        type: String,
-        trim: true
+    tutorText: {
+        type: Sequelize.STRING
     },
-    tutor: {type: mongoose.Schema.Types.ObjectId},
-    placesText: {
-        type: String,
-        trim: true
+    placeId: {
+        type: Sequelize.INTEGER
     },
-    place: {type: mongoose.Schema.Types.ObjectId},
-    groupsText: {
-        type: String,
-        trim: true
+    placeText: {
+        type: Sequelize.STRING
     },
-    group: {type: mongoose.Schema.Types.ObjectId},
+    groupId: {
+        type: Sequelize.INTEGER
+    },
+    groupText: {
+        type: Sequelize.STRING
+    },
     note: {
-        type: String,
-        trim: true
+        type: Sequelize.STRING
     },
-    field: {type: mongoose.Schema.Types.ObjectId},
-    blockBegin: {type: String},
-    blockEnd: {type: String}
+    blockBegin: {
+        type: Sequelize.STRING
+    },
+    blockEnd: {
+        type: Sequelize.STRING
+    }
+
+
 }, {timestamps: true});
-module.exports = mongoose.model('Event', EventSchema);
+
+Event.sync()
+    .then(function () {
+        module.exports = Event;
+    }).catch(function () {
+    console.log('Event model error', err);
+});

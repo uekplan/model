@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/uekplan/models/issues"
   },
-  "homepage": "https://github.com/uekplan/models#readme"
+  "homepage": "https://github.com/uekplan/models#readme",
+  "dependencies": {
+    "mysql": "^2.10.2",
+    "sequelize": "^3.21.0"
+  }
 }

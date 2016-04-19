@@ -1,24 +1,26 @@
 'use strict';
-var mongoose = require('mongoose');
-/**
- * @TODO spytać się czy mogą istnieć osoby o tych samych imionach w systemie
- */
-var LabelSchema = mongoose.Schema({
-    id: {type: Number},
+const sequelize = require('sequelize');
+var Label = sequelize.define('label', {
+    id: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true
+    },
+    timetableId: {
+        type: Sequelize.INTEGER,
+        allowNull: true
+    },
     key: {
-        type: String,
-        require: true,
-        trim: true,
-        index: true
+        type: Sequelize.STRING,
+        allowNull: false
     },
     value: {
-        type: String,
-        trim: true,
-        index: true
+        type: Sequelize.STRING,
+        allowNull: true
+
     },
     type: {
-        type: String,
-        enum: [
+        type: Sequelize.ENUM,
+        values: [
             //Group
             'G',
             //Building
@@ -34,42 +36,31 @@ var LabelSchema = mongoose.Schema({
             //Unknown to validate
             '?'
         ],
-        require: true,
-        default: '?',
-        index: true
+        defaultValue: '?'
     },
-    moodleId: {type: Number},
+    moodleId: {
+        type: Sequelize.INTEGER,
+        allowNull: true
+    },
     parentText: {
-        type: String,
-        trim: true
+        type: Sequelize.STRING,
+        allowNull: true
+
     },
     parentId: {
-        type: mongoose.Schema.Types.ObjectId,
-        index: true
+        type: Sequelize.INTEGER,
+        allowNull: true
     },
     orginal: {
-        type: Boolean,
-        default: true
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
     }
 }, {timestamps: true});
-LabelSchema.index({id: 1, key: 1}, {unique: true});
-LabelSchema.methods.getKey = function () {
-    return this.get('key');
-}
-LabelSchema.methods.getValue = function () {
-    return this.get('value');
-}
-LabelSchema.methods.getLabel = function () {
-    if (!this.getValue()) {
-        return this.getKey();
-    } else {
-        return this.getValue();
-    }
-};
-LabelSchema.methods.getType = function () {
-    return this.get('type');
-};
-LabelSchema.methods.getMoodleId = function () {
-    return this.get('moodleId');
-}
-module.exports = mongoose.model('Label', LabelSchema);
+
+Label.sync()
+    .then(function () {
+        module.exports = Label;
+    }).catch(function () {
+    console.log('Label model error', err);
+});
+
