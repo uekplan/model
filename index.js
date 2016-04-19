@@ -8,12 +8,12 @@ var sequelize = new Sequelize('uek-etl', process.env.UEKPLAN_DB_USERNAME, proces
 var db        = {};
 
 fs
-  .readdirSync(__dirname)
+  .readdirSync(__dirname + "/models")
   .filter(function(file) {
-    return (file.indexOf("./models") !== 0) && (file !== "index.js");
+    return (file.indexOf(".") !== 0);
   })
   .forEach(function(file) {
-    var model = sequelize.import(path.join(__dirname, file));
+    var model = sequelize.import(path.join(__dirname +'/models', file));
     db[model.name] = model;
   });
 

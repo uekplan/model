@@ -1,13 +1,12 @@
 'use strict';
-module.exports = function (Sequelize, DataTypes) {
-    var Event = Sequelize.define('label', {
+module.exports = function (sequelize, DataTypes) {
+    var Event = sequelize.define('label', {
         id: {
             type: Sequelize.INTEGER,
             autoIncrement: true
         },
         date: {
-            type: Sequelize.DATE,
-            autoIncrement: true
+            type: Sequelize.DATE
         },
         day: {
             type: Sequelize.STRING
