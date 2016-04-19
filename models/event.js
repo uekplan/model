@@ -3,7 +3,8 @@ module.exports = function (sequelize, DataTypes) {
     var Event = sequelize.define('label', {
         id: {
             type: DataTypes.INTEGER,
-            autoIncrement: true
+            autoIncrement: true,
+            primaryKey: true
         },
         date: {
             type: DataTypes.DATE

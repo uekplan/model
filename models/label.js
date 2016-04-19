@@ -3,7 +3,8 @@ module.exports = function (sequelize, DataTypes) {
     var Label = sequelize.define('label', {
         id: {
             type: DataTypes.INTEGER,
-            autoIncrement: true
+            autoIncrement: true,
+            primaryKey: true
         },
         timetableId: {
             type: DataTypes.INTEGER,
