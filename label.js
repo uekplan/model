@@ -1,6 +1,6 @@
 'use strict';
-const sequelize = require('sequelize');
-var Label = sequelize.define('label', {
+module.exports = function(Sequelize, DataTypes) {
+    var Label = Sequelize.define('label', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true
@@ -56,11 +56,5 @@ var Label = sequelize.define('label', {
         defaultValue: true
     }
 }, {timestamps: true});
-
-Label.sync()
-    .then(function () {
-        module.exports = Label;
-    }).catch(function () {
-    console.log('Label model error', err);
-});
-
+return Label;
+};
