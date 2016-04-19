@@ -3,7 +3,7 @@
 var fs        = require("fs");
 var path      = require("path");
 var Sequelize = require("sequelize");
-var config    = { host:process.env.UEKPLAN_DB_HOST || 'localhost', dialect: 'mysql'};
+var config    = { host:process.env.UEKPLAN_DB_HOST || 'localhost', dialect: 'mysql', logging: process.env.UEKPLAN_DB_LOGGING || false};
 var sequelize = new Sequelize('uekplan', process.env.UEKPLAN_DB_USERNAME, process.env.UEKPLAN_DB_PASSWORD, config);
 var db        = {};
 
