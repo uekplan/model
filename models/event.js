@@ -2,52 +2,52 @@
 module.exports = function (sequelize, DataTypes) {
     var Event = sequelize.define('label', {
         id: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             autoIncrement: true
         },
         date: {
-            type: Sequelize.DATE
+            type: DataTypes.DATE
         },
         day: {
-            type: Sequelize.STRING
+            type: DataTypes.STRING
         },
         from: {
-            type: Sequelize.STRING
+            type: DataTypes.STRING
         },
         to: {
-            type: Sequelize.STRING
+            type: DataTypes.STRING
         },
         activity: {
-            type: Sequelize.STRING
+            type: DataTypes.STRING
         }, type: {
-            type: Sequelize.STRING
+            type: DataTypes.STRING
         },
         tutorId: {
-            type: Sequelize.INTEGER
+            type: DataTypes.INTEGER
         },
         tutorText: {
-            type: Sequelize.STRING
+            type: DataTypes.STRING
         },
         placeId: {
-            type: Sequelize.INTEGER
+            type: DataTypes.INTEGER
         },
         placeText: {
-            type: Sequelize.STRING
+            type: DataTypes.STRING
         },
         groupId: {
-            type: Sequelize.INTEGER
+            type: DataTypes.INTEGER
         },
         groupText: {
-            type: Sequelize.STRING
+            type: DataTypes.STRING
         },
         note: {
-            type: Sequelize.STRING
+            type: DataTypes.STRING
         },
         blockBegin: {
-            type: Sequelize.STRING
+            type: DataTypes.STRING
         },
         blockEnd: {
-            type: Sequelize.STRING
+            type: DataTypes.STRING
         }
 
 

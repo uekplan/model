@@ -2,24 +2,24 @@
 module.exports = function (sequelize, DataTypes) {
     var Label = sequelize.define('label', {
         id: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             autoIncrement: true
         },
         timetableId: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: true
         },
         key: {
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         value: {
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             allowNull: true
 
         },
         type: {
-            type: Sequelize.ENUM,
+            type: DataTypes.ENUM,
             values: [
                 //Group
                 'G',
@@ -39,20 +39,20 @@ module.exports = function (sequelize, DataTypes) {
             defaultValue: '?'
         },
         moodleId: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: true
         },
         parentText: {
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             allowNull: true
 
         },
         parentId: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: true
         },
         orginal: {
-            type: Sequelize.BOOLEAN,
+            type: DataTypes.BOOLEAN,
             defaultValue: true
         }
     }, {timestamps: true});
