@@ -46,6 +46,7 @@ module.exports = function (sequelize, DataTypes) {
         }
     }, {
         indexes: [{
+            name:'unique',
             unique: true,
             fields: ['date', 'from', 'to', 'activity', 'type', 'tutorId', 'placeId', 'groupId', 'note', 'blocks']
         }],
