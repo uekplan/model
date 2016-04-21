@@ -23,6 +23,9 @@ module.exports = function (sequelize, DataTypes) {
         }, type: {
             type: DataTypes.STRING
         },
+        type: {
+            type: DataTypes.STRING
+        },
         tutorId: {
             type: DataTypes.INTEGER
         },
@@ -44,7 +47,7 @@ module.exports = function (sequelize, DataTypes) {
     }, {
         indexes: [{
             unique: true,
-            fields: ['date', 'from', 'to', 'activity', 'tutorId', 'placeId', 'groupId', 'note', 'blocks']
+            fields: ['date', 'from', 'to', 'activity', 'type', 'tutorId', 'placeId', 'groupId', 'note', 'blocks']
         }],
         timestamps: true
     });
