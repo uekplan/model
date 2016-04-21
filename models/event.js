@@ -44,14 +44,15 @@ module.exports = function (sequelize, DataTypes) {
         note: {
             type: DataTypes.STRING
         },
-        blockBegin: {
-            type: DataTypes.STRING
-        },
-        blockEnd: {
-            type: DataTypes.STRING
+        blocksBegin: {
+            type: DataTypes.INTEGER
         }
-
-
-    }, {timestamps: true});
+    }, {
+        indexes: [{
+            unique: true,
+            fields: ['date','from','to','activity','tutorId','placeId','groupId','note']
+        }],
+        timestamps: true
+    });
     return Event;
 };
