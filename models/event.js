@@ -13,14 +13,15 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING
         },
         from: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING(5)
         },
         to: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING(5)
         },
         activity: {
             type: DataTypes.STRING
-        }, type: {
+        },
+        type: {
             type: DataTypes.STRING
         },
         type: {
@@ -33,7 +34,6 @@ module.exports = function (sequelize, DataTypes) {
         placeId: {
             type: DataTypes.INTEGER
         },
-
         groupId: {
             type: DataTypes.INTEGER
         },
@@ -46,9 +46,9 @@ module.exports = function (sequelize, DataTypes) {
         }
     }, {
         indexes: [{
-            name:'unique',
+            name: 'unique',
             unique: true,
-            fields: ['date', 'from', 'to', 'activity', 'type', 'tutorId', 'placeId', 'groupId', 'note', 'blocks']
+            fields: ['date', 'from', 'to', 'type', 'tutorId', 'placeId', 'groupId', 'blocks']
         }],
         timestamps: true
     });
