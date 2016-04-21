@@ -1,6 +1,6 @@
 'use strict';
 module.exports = function (sequelize, DataTypes) {
-    var Event = sequelize.define('label', {
+    var Event = sequelize.define('event', {
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
@@ -26,31 +26,25 @@ module.exports = function (sequelize, DataTypes) {
         tutorId: {
             type: DataTypes.INTEGER
         },
-        tutorText: {
-            type: DataTypes.STRING
-        },
+
         placeId: {
             type: DataTypes.INTEGER
         },
-        placeText: {
-            type: DataTypes.STRING
-        },
+
         groupId: {
             type: DataTypes.INTEGER
         },
-        groupText: {
-            type: DataTypes.STRING
-        },
+
         note: {
             type: DataTypes.STRING
         },
-        blocksBegin: {
+        blocks: {
             type: DataTypes.INTEGER
         }
     }, {
         indexes: [{
             unique: true,
-            fields: ['date','from','to','activity','tutorId','placeId','groupId','note']
+            fields: ['date', 'from', 'to', 'activity', 'tutorId', 'placeId', 'groupId', 'note', 'blocks']
         }],
         timestamps: true
     });
