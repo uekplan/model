@@ -17,7 +17,6 @@ module.exports = function (sequelize, DataTypes) {
         value: {
             type: DataTypes.STRING,
             allowNull: true
-
         },
         type: {
             type: DataTypes.ENUM,
@@ -56,6 +55,14 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.BOOLEAN,
             defaultValue: true
         }
-    }, {timestamps: true});
+    }, {
+        timestamps: true,
+        indexes: [
+            {
+                unique: true,
+                fields: ['timetableId', 'key', 'type']
+            }
+        ]
+    });
     return Label;
 };
