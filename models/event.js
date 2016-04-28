@@ -7,10 +7,10 @@ module.exports = function (sequelize, DataTypes) {
             primaryKey: true
         },
         date: {
-            type: DataTypes.DATE
+            type: DataTypes.DATEONLY
         },
         day: {
-            type: DataTypes.STRING
+            type: DataTypes.INTEGER(1)
         },
         from: {
             type: DataTypes.STRING(5)
@@ -24,20 +24,15 @@ module.exports = function (sequelize, DataTypes) {
         type: {
             type: DataTypes.STRING
         },
-        type: {
-            type: DataTypes.STRING
-        },
         tutorId: {
             type: DataTypes.INTEGER
         },
-
         placeId: {
             type: DataTypes.INTEGER
         },
         groupId: {
             type: DataTypes.INTEGER
         },
-
         note: {
             type: DataTypes.STRING
         },
@@ -51,6 +46,7 @@ module.exports = function (sequelize, DataTypes) {
             fields: ['date',
                 'from',
                 'to',
+                'activity',
                 'type',
                 'tutorId',
                 'placeId',
