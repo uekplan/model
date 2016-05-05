@@ -40,7 +40,7 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.INTEGER
         },
         deleted: {
-            type: DataTypes.BOOLEAN
+            type: DataTypes.BOOLEAN,
             defaultValue: false
         }
     }, {
