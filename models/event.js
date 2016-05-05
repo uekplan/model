@@ -38,6 +38,10 @@ module.exports = function (sequelize, DataTypes) {
         },
         blocks: {
             type: DataTypes.INTEGER
+        },
+        deleted: {
+            type: DataTypes.BOOLEAN
+            defaultValue: false
         }
     }, {
         indexes: [{
