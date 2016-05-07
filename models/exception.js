@@ -1,5 +1,5 @@
 'use strict';
-module.exports = function (sequelize, DataTypes) {
+module.exports = (sequelize, DataTypes)=> {
     var Exception = sequelize.define('exception', {
         id: {
             type: DataTypes.INTEGER,
@@ -28,7 +28,7 @@ module.exports = function (sequelize, DataTypes) {
             ]
         }
     }, {
-        timestamps: true,
+        timestamps: false,
         indexes: [
             {
                 unique: true,

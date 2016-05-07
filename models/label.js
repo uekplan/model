@@ -1,5 +1,5 @@
 'use strict';
-module.exports = function (sequelize, DataTypes) {
+module.exports = (sequelize, DataTypes)=> {
     var Label = sequelize.define('label', {
         id: {
             type: DataTypes.INTEGER,
@@ -57,7 +57,7 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: true,
             references: {
-                model: 'Label',
+                model: 'labels',
                 key: 'id'
             }
         },
@@ -66,7 +66,7 @@ module.exports = function (sequelize, DataTypes) {
             defaultValue: true
         }
     }, {
-        timestamps: true,
+        timestamps: false,
         indexes: [
             {
                 unique: true,

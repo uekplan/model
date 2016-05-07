@@ -1,5 +1,5 @@
 'use strict';
-module.exports = function (sequelize, DataTypes) {
+module.exports = (sequelize, DataTypes) => {
     var EventTemp = sequelize.define('eventTemp', {
         id: {
             type: DataTypes.INTEGER,
@@ -8,7 +8,6 @@ module.exports = function (sequelize, DataTypes) {
         },
         date: {
             type: DataTypes.DATEONLY
-
         },
         day: {
             type: DataTypes.INTEGER(1)
@@ -31,7 +30,7 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: true,
             references: {
-                model: 'Label',
+                model: 'labels',
                 key: 'id'
             }
         },
@@ -39,7 +38,7 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: true,
             references: {
-                model: 'Label',
+                model: 'labels',
                 key: 'id'
             }
         },
@@ -47,7 +46,7 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: true,
             references: {
-                model: 'Label',
+                model: 'labels',
                 key: 'id'
             }
         },
@@ -72,7 +71,7 @@ module.exports = function (sequelize, DataTypes) {
                 'groupId',
                 'blocks']
         }],
-        timestamps: true
+        timestamps: false
     });
     return EventTemp;
 };
