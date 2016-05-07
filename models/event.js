@@ -20,11 +20,11 @@ module.exports = (sequelize, DataTypes)=> {
         },
         activity: {
             type: DataTypes.STRING,
-            allowNull: true
+            defaultValue: ''
         },
         type: {
             type: DataTypes.STRING,
-            allowNull: true
+            defaultValue: ''
         },
         tutorId: {
             type: DataTypes.INTEGER,
@@ -52,7 +52,7 @@ module.exports = (sequelize, DataTypes)=> {
         },
         note: {
             type: DataTypes.STRING,
-            allowNull: true
+            defaultValue: ''
         },
         blocks: {
             type: DataTypes.INTEGER
