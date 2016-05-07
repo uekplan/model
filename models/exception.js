@@ -18,7 +18,9 @@ module.exports = function (sequelize, DataTypes) {
                 //Room
                 'S',
                 //Tutor
-                'N'
+                'N',
+                //types
+                'T'
             ]
         }
     }, {

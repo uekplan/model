@@ -8,6 +8,7 @@ module.exports = function (sequelize, DataTypes) {
         },
         date: {
             type: DataTypes.DATEONLY
+
         },
         day: {
             type: DataTypes.INTEGER(1)
@@ -19,22 +20,41 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING(5)
         },
         activity: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: true
         },
         type: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: true
         },
         tutorId: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            references: {
+                model: 'Label',
+                key: 'id'
+            }
         },
         placeId: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            references: {
+                model: 'Label',
+                key: 'id'
+            }
+
         },
         groupId: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            references: {
+                model: 'Label',
+                key: 'id'
+            }
         },
         note: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: true
         },
         blocks: {
             type: DataTypes.INTEGER
@@ -45,7 +65,7 @@ module.exports = function (sequelize, DataTypes) {
         }
     }, {
         indexes: [{
-            name: 'unique',
+            name: 'unique_event',
             unique: true,
             fields: ['date',
                 'from',

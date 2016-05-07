@@ -33,6 +33,8 @@ module.exports = function (sequelize, DataTypes) {
                 'F',
                 //Surname
                 'C',
+                //Type
+                'T',
                 //Unknown to validate
                 '?'
             ],
@@ -49,7 +51,11 @@ module.exports = function (sequelize, DataTypes) {
         },
         parentId: {
             type: DataTypes.INTEGER,
-            allowNull: true
+            allowNull: true,
+            references: {
+                model: 'Label',
+                key: 'id'
+            }
         },
         orginal: {
             type: DataTypes.BOOLEAN,
