@@ -20,7 +20,7 @@ module.exports = function (sequelize, DataTypes) {
                 //Tutor
                 'N',
                 //types
-                'T'
+                'T',
                 //activity
                 'A',
                 // note
