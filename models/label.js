@@ -35,6 +35,10 @@ module.exports = function (sequelize, DataTypes) {
                 'C',
                 //Type
                 'T',
+                //activity
+                'A',
+                // note
+                'I',
                 //Unknown to validate
                 '?'
             ],

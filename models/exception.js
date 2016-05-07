@@ -21,6 +21,10 @@ module.exports = function (sequelize, DataTypes) {
                 'N',
                 //types
                 'T'
+                //activity
+                'A',
+                // note
+                'I',
             ]
         }
     }, {
