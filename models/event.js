@@ -50,6 +50,7 @@ module.exports = (sequelize, DataTypes)=> {
             defaultValue: false
         }
     }, {
+        timestamps: false,
         indexes: [{
             name: 'unique_event',
             unique: true,
@@ -63,7 +64,6 @@ module.exports = (sequelize, DataTypes)=> {
                 'groupId',
                 'blocks']
         }],
-        timestamps: false,
         classMethods: {
             associate: (models) => {
                 Event.belongsTo(models.label, {

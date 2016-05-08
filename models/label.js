@@ -66,20 +66,25 @@ module.exports = (sequelize, DataTypes)=> {
         }],
         classMethods: {
             associate: (models) => {
-                Event.belongsTo(models.label, {
-                    as: 'tutor',
-                    foreignKey: 'tutorId',
+                Label.hasOne(Label, {
+                    as: 'parent',
+                    foreginKey: 'parentId',
                     targetKey: 'id'
                 });
-                Event.belongsTo(models.label, {
-                    as: 'place',
-                    foreignKey: 'placeId',
-                    targetKey: 'id'
+                Label.hasMany(models.event, {
+                    as: 'tutors',
+                    foreignKey: 'id',
+                    targetKey: 'tutorId'
                 });
-                Event.belongsTo(models.label, {
-                    as: 'group',
-                    foreignKey: 'groupId',
-                    targetKey: 'id'
+                Label.hasMany(models.event, {
+                    as: 'places',
+                    foreignKey: 'id',
+                    targetKey: 'placeId'
+                });
+                Label.hasMany(models.event, {
+                    as: 'groups',
+                    foreignKey: 'id',
+                    targetKey: 'groupId'
                 });
             }
         }
