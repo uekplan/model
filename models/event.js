@@ -28,11 +28,7 @@ module.exports = (sequelize, DataTypes)=> {
         },
         tutorId: {
             type: DataTypes.INTEGER,
-            allowNull: true,
-            references: {
-                model: 'labels',
-                key: 'id'
-            }
+            allowNull: true
         },
         placeId: {
             type: DataTypes.INTEGER,
