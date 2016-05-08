@@ -36,19 +36,11 @@ module.exports = (sequelize, DataTypes)=> {
         },
         placeId: {
             type: DataTypes.INTEGER,
-            allowNull: true,
-            references: {
-                model: 'labels',
-                key: 'id'
-            }
+            allowNull: true
         },
         groupId: {
             type: DataTypes.INTEGER,
-            allowNull: true,
-            references: {
-                model: 'labels',
-                key: 'id'
-            }
+            allowNull: true
         },
         note: {
             type: DataTypes.STRING,
@@ -75,7 +67,26 @@ module.exports = (sequelize, DataTypes)=> {
                 'groupId',
                 'blocks']
         }],
-        timestamps: false
+        timestamps: false,
+        classMethods: {
+            associate: (models) => {
+                Event.belongsTo(models.label, {
+                    as: 'tutor',
+                    foreignKey: 'tutorId',
+                    targetKey: 'id'
+                });
+                Event.belongsTo(models.label, {
+                    as: 'place',
+                    foreignKey: 'placeId',
+                    targetKey: 'id'
+                });
+                Event.belongsTo(models.label, {
+                    as: 'group',
+                    foreignKey: 'groupId',
+                    targetKey: 'id'
+                });
+            }
+        }
     });
     return Event;
 };

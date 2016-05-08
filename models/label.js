@@ -55,11 +55,7 @@ module.exports = (sequelize, DataTypes)=> {
         },
         parentId: {
             type: DataTypes.INTEGER,
-            allowNull: true,
-            references: {
-                model: 'labels',
-                key: 'id'
-            }
+            allowNull: true
         },
         orginal: {
             type: DataTypes.BOOLEAN,
@@ -72,7 +68,39 @@ module.exports = (sequelize, DataTypes)=> {
                 unique: true,
                 fields: ['timetableId', 'key', 'type']
             }
-        ]
+        ],
+        classMethods: {
+            associate: (models) => {
+
+                Label.belongsTo(models.label, {
+                    as: 'parent',
+                    foreginKey: 'parentId',
+                    targetKey: 'id'
+                });
+
+                Label.hasMany(models.label, {
+                    as: 'children',
+                    foreignKey: 'id',
+                    targetKey: 'parentId'
+                });
+
+                Label.hasMany(models.event, {
+                    as: 'tutors',
+                    foreignKey: 'id',
+                    targetKey: 'tutorId'
+                });
+                Label.hasMany(models.event, {
+                    as: 'places',
+                    foreignKey: 'id',
+                    targetKey: 'placeId'
+                });
+                Label.hasMany(models.event, {
+                    as: 'groups',
+                    foreignKey: 'id',
+                    targetKey: 'groupId'
+                });
+            }
+        }
     });
     return Label;
 };
