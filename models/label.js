@@ -1,106 +1,88 @@
 'use strict';
 module.exports = (sequelize, DataTypes)=> {
-    var Label = sequelize.define('label', {
+    var Event = sequelize.define('event', {
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
         },
-        timetableId: {
-            type: DataTypes.INTEGER,
-            allowNull: true
+        date: {
+            type: DataTypes.DATEONLY
         },
-        key: {
-            type: DataTypes.STRING,
-            allowNull: false
+        day: {
+            type: DataTypes.INTEGER(1)
         },
-        value: {
+        from: {
+            type: DataTypes.STRING(5)
+        },
+        to: {
+            type: DataTypes.STRING(5)
+        },
+        activity: {
             type: DataTypes.STRING,
-            allowNull: true
+            defaultValue: ''
         },
         type: {
-            type: DataTypes.ENUM,
-            values: [
-                //Group
-                'G',
-                //Building
-                'B',
-                //Room
-                'S',
-                //Tutor
-                'N',
-                //Field
-                'F',
-                //Surname
-                'C',
-                //Type
-                'T',
-                //activity
-                'A',
-                // note
-                'I',
-                //Unknown to validate
-                '?'
-            ],
-            defaultValue: '?'
-        },
-        moodleId: {
-            type: DataTypes.INTEGER,
-            allowNull: true
-        },
-        parentText: {
             type: DataTypes.STRING,
-            allowNull: true
-
+            defaultValue: ''
         },
-        parentId: {
+        tutorId: {
             type: DataTypes.INTEGER,
             allowNull: true
         },
-        orginal: {
+        placeId: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
+        groupId: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
+        note: {
+            type: DataTypes.STRING,
+            defaultValue: ''
+        },
+        blocks: {
+            type: DataTypes.INTEGER
+        },
+        deleted: {
             type: DataTypes.BOOLEAN,
-            defaultValue: true
+            defaultValue: false
         }
     }, {
         timestamps: false,
-        indexes: [
-            {
-                unique: true,
-                fields: ['timetableId', 'key', 'type']
-            }
-        ],
+        indexes: [{
+            name: 'unique_event',
+            unique: true,
+            fields: ['date',
+                'from',
+                'to',
+                'activity',
+                'type',
+                'tutorId',
+                'placeId',
+                'groupId',
+                'blocks']
+        }],
         classMethods: {
             associate: (models) => {
-
-                Label.belongsTo(models.label, {
-                    as: 'parent',
-                    foreginKey: 'parentId',
+                Event.belongsTo(models.label, {
+                    as: 'tutor',
+                    foreignKey: 'tutorId',
                     targetKey: 'id'
                 });
-
-                Label.hasMany(models.label, {
-                    as: 'children',
-                    foreignKey: 'id',
-                    targetKey: 'parentId'
+                Event.belongsTo(models.label, {
+                    as: 'place',
+                    foreignKey: 'placeId',
+                    targetKey: 'id'
                 });
-
-                Label.hasMany(models.event, {
-                    as: 'tutors',
-                    foreignKey: 'id',
-                    targetKey: 'tutorId'
-                });
-                Label.hasMany(models.event, {
-                    as: 'places',
-                    foreignKey: 'id',
-                    targetKey: 'placeId'
-                });
-                Label.hasMany(models.event, {
-                    as: 'groups',
-                    foreignKey: 'id',
-                    targetKey: 'groupId'
+                Event.belongsTo(models.label, {
+                    as: 'group',
+                    foreignKey: 'groupId',
+                    targetKey: 'id'
                 });
             }
         }
     });
-    return Label;
+    return Event;
 };
