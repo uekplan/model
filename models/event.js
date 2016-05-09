@@ -79,7 +79,7 @@ module.exports = (sequelize, DataTypes)=> {
                         targetKey: 'id'
                     });
                     Event.belongsTo(models.label, {
-                        as: '',
+                        as: 'type',
                         foreignKey: 'typeId',
                         targetKey: 'id'
                     });
