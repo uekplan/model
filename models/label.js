@@ -71,11 +71,20 @@ module.exports = (sequelize, DataTypes)=> {
         ],
         classMethods: {
             associate: (models) => {
-
                 Label.hasOne(Label, {
                     as: 'parent',
                     foreginKey: 'parentId',
                     targetKey: 'id'
+                });
+                Label.hasMany(models.event, {
+                    as: 'activites',
+                    foreignKey: 'id',
+                    targetKey: 'activityId'
+                });
+                Label.hasMany(models.event, {
+                    as: 'types',
+                    foreignKey: 'id',
+                    targetKey: 'typeId'
                 });
                 Label.hasMany(models.event, {
                     as: 'tutors',
@@ -91,6 +100,11 @@ module.exports = (sequelize, DataTypes)=> {
                     as: 'groups',
                     foreignKey: 'id',
                     targetKey: 'groupId'
+                });
+                Label.hasMany(models.event, {
+                    as: 'notes',
+                    foreignKey: 'id',
+                    targetKey: 'noteId'
                 });
             }
         }

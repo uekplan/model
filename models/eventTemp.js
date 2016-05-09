@@ -18,29 +18,35 @@ module.exports = (sequelize, DataTypes) => {
         to: {
             type: DataTypes.STRING(5)
         },
-        activity: {
-            type: DataTypes.STRING,
-            defaultValue: ''
+        activityId: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            defaultValue: null
         },
-        type: {
-            type: DataTypes.STRING,
-            defaultValue: ''
+        typeId: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            defaultValue: null
         },
         tutorId: {
             type: DataTypes.INTEGER,
-            allowNull: true
+            allowNull: true,
+            defaultValue: null
         },
         placeId: {
             type: DataTypes.INTEGER,
-            allowNull: true
+            allowNull: true,
+            defaultValue: null
         },
         groupId: {
             type: DataTypes.INTEGER,
-            allowNull: true
+            allowNull: true,
+            defaultValue: null
         },
-        note: {
-            type: DataTypes.STRING,
-            defaultValue: ''
+        noteId: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            defaultValue: null
         },
         blocks: {
             type: DataTypes.INTEGER
@@ -53,13 +59,14 @@ module.exports = (sequelize, DataTypes) => {
             fields: ['date',
                 'from',
                 'to',
-                'activity',
-                'type',
+                'activityId',
+                'typeId',
                 'tutorId',
                 'placeId',
                 'groupId',
                 'blocks']
-        }]
+        }],
+        engine: 'MYISAM'
     });
     return EventTemp;
 };

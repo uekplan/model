@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes)=> {
                 //activity
                 'A',
                 // note
-                'I',
+                'I'
             ]
         }
     }, {
