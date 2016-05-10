@@ -18,6 +18,18 @@ module.exports = (sequelize, DataTypes)=> {
             type: DataTypes.STRING,
             allowNull: true
         },
+        prefix: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        forename: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        surname: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
         type: {
             type: DataTypes.ENUM,
             values: [
