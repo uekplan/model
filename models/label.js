@@ -74,7 +74,7 @@ module.exports = (sequelize, DataTypes)=> {
             defaultValue: true
         }
     }, {
-        timestamps: false,
+        timestamps: true,
         indexes: [
             {
                 unique: true,
@@ -88,6 +88,7 @@ module.exports = (sequelize, DataTypes)=> {
                     foreginKey: 'parentId',
                     targetKey: 'id'
                 });
+
                 Label.hasMany(models.event, {
                     as: 'activites',
                     foreignKey: 'id',

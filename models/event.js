@@ -57,7 +57,7 @@ module.exports = (sequelize, DataTypes)=> {
             }
         },
         {
-            timestamps: false,
+            timestamps: true,
             indexes: [{
                 name: 'unique_event',
                 unique: true,
