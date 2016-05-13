@@ -1,4 +1,5 @@
 'use strict';
+const LABEL_TYPES = require('./../labelTypes');
 module.exports = (sequelize, DataTypes)=> {
     var Exception = sequelize.define('exception', {
         id: {
