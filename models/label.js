@@ -1,75 +1,31 @@
 'use strict';
+const LABEL_TYPES = require('./../labelTypes');
 module.exports = (sequelize, DataTypes)=> {
     var Label = sequelize.define('label', {
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
-        },
-        timetableId: {
+        }, timetableId: {
             type: DataTypes.INTEGER,
             allowNull: true
-        },
-        key: {
+        }, key: {
             type: DataTypes.STRING,
             allowNull: false
-        },
-        value: {
+        }, value: {
             type: DataTypes.STRING,
             allowNull: true
-        },
-        prefix: {
-            type: DataTypes.STRING,
-            allowNull: true
-        },
-        forename: {
-            type: DataTypes.STRING,
-            allowNull: true
-        },
-        surname: {
-            type: DataTypes.STRING,
-            allowNull: true
-        },
-        type: {
+        }, type: {
             type: DataTypes.ENUM,
-            values: [
-                //Group
-                'G',
-                //Building
-                'B',
-                //Room
-                'S',
-                //Tutor
-                'N',
-                //Field
-                'F',
-                //Surname
-                'C',
-                //Type
-                'T',
-                //activity
-                'A',
-                // note
-                'I',
-                //Unknown to validate
-                '?'
-            ],
-            defaultValue: '?'
-        },
-        moodleId: {
-            type: DataTypes.INTEGER,
-            allowNull: true
-        },
-        parentText: {
+            values: LABEL_TYPES.values(),
+            defaultValue: LABEL_TYPES.UNKNOWN
+        }, parentText: {
             type: DataTypes.STRING,
             allowNull: true
-
-        },
-        parentId: {
+        }, parentId: {
             type: DataTypes.INTEGER,
             allowNull: true
-        },
-        orginal: {
+        }, orginal: {
             type: DataTypes.BOOLEAN,
             defaultValue: true
         }
@@ -87,6 +43,12 @@ module.exports = (sequelize, DataTypes)=> {
                     as: 'parent',
                     foreginKey: 'parentId',
                     targetKey: 'id'
+                });
+
+                Label.hasOne(Label, {
+                    as: 'tutor',
+                    foreginKey: 'id',
+                    targetKey: 'labelId'
                 });
 
                 Label.hasMany(models.event, {

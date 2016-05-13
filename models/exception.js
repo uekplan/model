@@ -5,27 +5,12 @@ module.exports = (sequelize, DataTypes)=> {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
-        },
-        key: {
+        }, key: {
             type: DataTypes.STRING,
             allowNull: false
-        },
-        type: {
+        }, type: {
             type: DataTypes.ENUM,
-            values: [
-                //Group
-                'G',
-                //Room
-                'S',
-                //Tutor
-                'N',
-                //types
-                'T',
-                //activity
-                'A',
-                // note
-                'I'
-            ]
+            values: LABEL_TYPES.values()
         }
     }, {
         timestamps: false,
