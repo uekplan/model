@@ -3,7 +3,7 @@ const LABEL_TYPES = require('./../labelTypes');
 module.exports = (sequelize, DataTypes)=> {
     var Exception = sequelize.define('exception', {
         id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.INTEGER.UNSIGNED,
             autoIncrement: true,
             primaryKey: true
         }, key: {
@@ -11,7 +11,9 @@ module.exports = (sequelize, DataTypes)=> {
             allowNull: false
         }, type: {
             type: DataTypes.ENUM,
-            values: LABEL_TYPES.values()
+            values: Object.keys(LABEL_TYPES).map(function (k) {
+                return LABEL_TYPES[k]
+            })
         }
     }, {
         timestamps: false,

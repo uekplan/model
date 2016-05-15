@@ -1,27 +1,31 @@
 'use strict';
 module.exports = (sequelize, DataTypes)=> {
-    var LabelTutor = sequelize.define('labelTutors', {
+    var LabelTutor = sequelize.define('labeltutor', {
         labelId: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.INTEGER.UNSIGNED,
             primaryKey: true
-        }, prefix: {
+        },
+        prefix: {
             type: DataTypes.STRING,
             allowNull: true
-        }, forename: {
+        },
+        forename: {
             type: DataTypes.STRING,
             allowNull: true
-        }, surname: {
+        },
+        surname: {
             type: DataTypes.STRING,
             allowNull: true
-        }, moodleId: {
-            type: DataTypes.INTEGER,
+        },
+        moodleId: {
+            type: DataTypes.INTEGER.UNSIGNED,
             allowNull: true
         }
     }, {
         timestamps: true,
         classMethods: {
             associate: (models) => {
-                LabelTutor.belongsTo(Label, {
+                LabelTutor.hasOne(models.label, {
                     as: 'label',
                     foreginKey: 'labelId',
                     targetKey: 'id'

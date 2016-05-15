@@ -3,29 +3,38 @@ const LABEL_TYPES = require('./../labelTypes');
 module.exports = (sequelize, DataTypes)=> {
     var Label = sequelize.define('label', {
         id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.INTEGER.UNSIGNED,
             autoIncrement: true,
             primaryKey: true
-        }, timetableId: {
-            type: DataTypes.INTEGER,
+        },
+        timetableId: {
+            type: DataTypes.INTEGER.UNSIGNED,
             allowNull: true
-        }, key: {
+        },
+        key: {
             type: DataTypes.STRING,
             allowNull: false
-        }, value: {
+        },
+        value: {
             type: DataTypes.STRING,
             allowNull: true
-        }, type: {
+        },
+        type: {
             type: DataTypes.ENUM,
-            values: LABEL_TYPES.values(),
+            values: Object.keys(LABEL_TYPES).map(function (k) {
+                return LABEL_TYPES[k]
+            }),
             defaultValue: LABEL_TYPES.UNKNOWN
-        }, parentText: {
+        },
+        parentText: {
             type: DataTypes.STRING,
             allowNull: true
-        }, parentId: {
-            type: DataTypes.INTEGER,
+        },
+        parentId: {
+            type: DataTypes.INTEGER.UNSIGNED,
             allowNull: true
-        }, orginal: {
+        },
+        orginal: {
             type: DataTypes.BOOLEAN,
             defaultValue: true
         }
@@ -39,14 +48,21 @@ module.exports = (sequelize, DataTypes)=> {
         ],
         classMethods: {
             associate: (models) => {
+
+                Label.hasMany(Label, {
+                    as: 'labels',
+                    foreginKey: 'id',
+                    targetKey: 'parentId'
+                });
                 Label.hasOne(Label, {
-                    as: 'parent',
+                    as: 'label',
                     foreginKey: 'parentId',
                     targetKey: 'id'
                 });
 
-                Label.hasOne(Label, {
-                    as: 'tutor',
+
+                Label.belongsTo(models.labeltutor, {
+                    as: 'labelTutors',
                     foreginKey: 'id',
                     targetKey: 'labelId'
                 });

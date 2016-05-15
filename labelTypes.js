@@ -1,13 +1,13 @@
 const LABEL_TYPES = {
-    ACTIVITY: 0,
-    BUILDING: 1,
-    SURNAME: 2,
-    FIELD: 3,
-    GROUP: 4,
-    NOTE: 5,
-    TUTOR: 6,
-    ROOM: 7,
-    TYPE: 8,
-    UNKNOWN: 9
+    ACTIVITY: 'A',
+    BUILDING: 'B',
+    SURNAME: 'C',
+    FIELD: 'F',
+    GROUP: 'G',
+    NOTE: 'I',
+    TUTOR: 'N',
+    ROOM: 'S',
+    TYPE: 'T',
+    UNKNOWN: '?'
 };
 module.exports = LABEL_TYPES;
