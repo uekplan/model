@@ -57,7 +57,7 @@ module.exports = (sequelize, DataTypes)=> {
             }
         },
         {
-            timestamps: true,
+            timestamps: false,
             indexes: [{
                 name: 'unique_event',
                 unique: true,
@@ -69,6 +69,7 @@ module.exports = (sequelize, DataTypes)=> {
                     'tutorId',
                     'placeId',
                     'groupId',
+                    'noteId',
                     'blocks']
             }],
             classMethods: {

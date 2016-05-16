@@ -64,6 +64,7 @@ module.exports = (sequelize, DataTypes) => {
                 'tutorId',
                 'placeId',
                 'groupId',
+                'noteId'
                 'blocks']
         }],
         engine: 'MYISAM'

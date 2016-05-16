@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes)=> {
             allowNull: true
         }
     }, {
-        timestamps: true,
+        timestamps: false,
         classMethods: {
             associate: (models) => {
                 LabelTutor.belongsTo(models.label, {

@@ -35,7 +35,7 @@ module.exports = (sequelize, DataTypes)=> {
             defaultValue: true
         }
     }, {
-        timestamps: true,
+        timestamps: false,
         indexes: [{
             unique: true,
             fields: ['timetableId', 'key', 'type']
