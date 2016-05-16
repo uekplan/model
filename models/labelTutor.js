@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes)=> {
             type: DataTypes.STRING,
             allowNull: true
         },
-        surname: {
+        surename: {
             type: DataTypes.STRING,
             allowNull: true
         },
@@ -25,12 +25,12 @@ module.exports = (sequelize, DataTypes)=> {
         timestamps: true,
         classMethods: {
             associate: (models) => {
-                LabelTutor.hasOne(models.label, {
+                LabelTutor.belongsTo(models.label, {
                     as: 'label',
                     foreginKey: 'labelId',
-                    targetKey: 'id'
+                    targetKey: 'id',
+                    constraints: false
                 });
-
             }
         }
     });

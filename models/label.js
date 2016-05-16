@@ -2,11 +2,7 @@
 const LABEL_TYPES = require('./../labelTypes');
 module.exports = (sequelize, DataTypes)=> {
     var Label = sequelize.define('label', {
-        id: {
-            type: DataTypes.INTEGER.UNSIGNED,
-            autoIncrement: true,
-            primaryKey: true
-        },
+
         timetableId: {
             type: DataTypes.INTEGER.UNSIGNED,
             allowNull: true
@@ -21,7 +17,7 @@ module.exports = (sequelize, DataTypes)=> {
         },
         type: {
             type: DataTypes.ENUM,
-            values: Object.keys(LABEL_TYPES).map(function (k) {
+            values: Object.keys(LABEL_TYPES).map((k)=> {
                 return LABEL_TYPES[k]
             }),
             defaultValue: LABEL_TYPES.UNKNOWN
@@ -30,7 +26,7 @@ module.exports = (sequelize, DataTypes)=> {
             type: DataTypes.STRING,
             allowNull: true
         },
-        parentId: {
+        labelId: {
             type: DataTypes.INTEGER.UNSIGNED,
             allowNull: true
         },
@@ -40,42 +36,45 @@ module.exports = (sequelize, DataTypes)=> {
         }
     }, {
         timestamps: true,
-        indexes: [
-            {
-                unique: true,
-                fields: ['timetableId', 'key', 'type']
-            }
-        ],
+        indexes: [{
+            unique: true,
+            fields: ['timetableId', 'key', 'type']
+        }],
         classMethods: {
             associate: (models) => {
+                Label.belongsTo(Label, {
+                    as: 'label',
+                    foreginKey: 'parentId',
+                    targetKey: 'id',
+                    constraints: false
+                });
+
+                Label.hasOne(models.labeltutor, {
+                    as: 'labeltutor',
+                    foreginKey: 'id',
+                    targetKey: 'labelId',
+                    constraints: false
+
+                });
 
                 Label.hasMany(Label, {
                     as: 'labels',
                     foreginKey: 'id',
-                    targetKey: 'parentId'
+                    targetKey: 'parentId',
+                    constraints: false
                 });
-                Label.hasOne(Label, {
-                    as: 'label',
-                    foreginKey: 'parentId',
-                    targetKey: 'id'
-                });
-
-
-                Label.belongsTo(models.labeltutor, {
-                    as: 'labelTutors',
-                    foreginKey: 'id',
-                    targetKey: 'labelId'
-                });
-
                 Label.hasMany(models.event, {
                     as: 'activites',
                     foreignKey: 'id',
-                    targetKey: 'activityId'
+                    targetKey: 'activityId',
+
                 });
                 Label.hasMany(models.event, {
                     as: 'types',
                     foreignKey: 'id',
-                    targetKey: 'typeId'
+                    targetKey: 'typeId',
+                    constraints: false
+
                 });
                 Label.hasMany(models.event, {
                     as: 'tutors',

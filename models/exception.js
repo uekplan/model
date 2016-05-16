@@ -1,28 +1,28 @@
 'use strict';
 const LABEL_TYPES = require('./../labelTypes');
-module.exports = (sequelize, DataTypes)=> {
-    var Exception = sequelize.define('exception', {
+module.exports = (sequelize, DataTypes) => {
+    var exception = sequelize.define('exception', {
         id: {
             type: DataTypes.INTEGER.UNSIGNED,
             autoIncrement: true,
             primaryKey: true
-        }, key: {
+        },
+        key: {
             type: DataTypes.STRING,
             allowNull: false
-        }, type: {
+        },
+        type: {
             type: DataTypes.ENUM,
-            values: Object.keys(LABEL_TYPES).map(function (k) {
+            values: Object.keys(LABEL_TYPES).map((k)=> {
                 return LABEL_TYPES[k]
             })
         }
     }, {
         timestamps: false,
-        indexes: [
-            {
-                unique: true,
-                fields: ['key', 'type']
-            }
-        ]
+        indexes: [{
+            unique: true,
+            fields: ['key', 'type']
+        }]
     });
-    return Exception;
+    return exception;
 };
