@@ -6,6 +6,18 @@ module.exports = (sequelize, DataTypes)=> {
                 autoIncrement: true,
                 primaryKey: true
             },
+            exceptionsExtracted: {
+                type: DataTypes.INTEGER.UNSIGNED,
+                allowNull: true,
+                set: (val)=> {
+                    this.setDataValue('exceptiopnsExtracted', val);
+                    this.setDataValue('exceptiopnsExtractedAt', new Date());
+                }
+            },
+            exceptionsExtractedAt: {
+                type: DataTypes.DATE,
+                allowNull: true
+            },
             eventsExtracted: {
                 type: DataTypes.INTEGER.UNSIGNED,
                 allowNull: true,
@@ -15,6 +27,18 @@ module.exports = (sequelize, DataTypes)=> {
                 }
             },
             eventsExtractedAt: {
+                type: DataTypes.DATE,
+                allowNull: true
+            },
+            eventtempsInserted: {
+                type: DataTypes.INTEGER.UNSIGNED,
+                allowNull: true,
+                set: (val)=> {
+                    this.setDataValue('eventtempsInserted', val);
+                    this.setDataValue('eventtempsInsertedAt', new Date());
+                }
+            },
+            eventtempsInsertedAt: {
                 type: DataTypes.DATE,
                 allowNull: true
             },
