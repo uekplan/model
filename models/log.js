@@ -6,12 +6,24 @@ module.exports = (sequelize, DataTypes)=> {
                 autoIncrement: true,
                 primaryKey: true
             },
-            exceptionsExtracted: {
+            downloadedTimetables: {
                 type: DataTypes.INTEGER.UNSIGNED,
                 allowNull: true,
                 set: (val)=> {
                     this.setDataValue('exceptiopnsExtracted', val);
                     this.setDataValue('exceptiopnsExtractedAt', new Date());
+                }
+            },
+            downloadedTimetablesAt: {
+                type: DataTypes.DATE,
+                allowNull: true
+            },
+            exceptionsExtracted: {
+                type: DataTypes.INTEGER.UNSIGNED,
+                allowNull: true,
+                set: (val)=> {
+                    this.setDataValue('exceptionsExtracted', val);
+                    this.setDataValue('exceptionsExtractedAt', new Date());
                 }
             },
             exceptionsExtractedAt: {
