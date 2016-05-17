@@ -10,8 +10,8 @@ module.exports = (sequelize, DataTypes)=> {
                 type: DataTypes.INTEGER.UNSIGNED,
                 allowNull: true,
                 set: (val)=> {
-                    this.setDataValue('exceptiopnsExtracted', val);
-                    this.setDataValue('exceptiopnsExtractedAt', new Date());
+                    this.setDataValue('downloadedTimetables', val);
+                    this.setDataValue('downloadedTimetablesAt', new Date());
                 }
             },
             downloadedTimetablesAt: {
