@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes)=> {
             downloadedTimetables: {
                 type: DataTypes.INTEGER.UNSIGNED,
                 allowNull: true,
-                set: (val)=> {
+                set: function (val) {
                     this.setDataValue('downloadedTimetables', val);
                     this.setDataValue('downloadedTimetablesAt', new Date());
                 }
@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes)=> {
             exceptionsExtracted: {
                 type: DataTypes.INTEGER.UNSIGNED,
                 allowNull: true,
-                set: (val)=> {
+                set: function(val) {
                     this.setDataValue('exceptionsExtracted', val);
                     this.setDataValue('exceptionsExtractedAt', new Date());
                 }
@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes)=> {
             eventsExtracted: {
                 type: DataTypes.INTEGER.UNSIGNED,
                 allowNull: true,
-                set: (val)=> {
+                set:function (val) {
                     this.setDataValue('eventsExtracted', val);
                     this.setDataValue('eventsExtractedAt', new Date());
                 }
@@ -45,7 +45,7 @@ module.exports = (sequelize, DataTypes)=> {
             eventtempsInserted: {
                 type: DataTypes.INTEGER.UNSIGNED,
                 allowNull: true,
-                set: (val)=> {
+                set:function (val){
                     this.setDataValue('eventtempsInserted', val);
                     this.setDataValue('eventtempsInsertedAt', new Date());
                 }
@@ -57,7 +57,7 @@ module.exports = (sequelize, DataTypes)=> {
             eventsInserted: {
                 type: DataTypes.INTEGER.UNSIGNED,
                 allowNull: true,
-                set: (val)=> {
+                set: function(val) {
                     this.setDataValue('eventsInserted', val);
                     this.setDataValue('eventsInsertedAt', new Date());
                 }
@@ -69,7 +69,7 @@ module.exports = (sequelize, DataTypes)=> {
             eventsDeleted: {
                 type: DataTypes.INTEGER.UNSIGNED,
                 allowNull: true,
-                set: (val)=> {
+                set:function (val) {
                     this.setDataValue('eventsDeleted', val);
                     this.setDataValue('eventsDeletedAt', new Date());
                 }
@@ -81,7 +81,7 @@ module.exports = (sequelize, DataTypes)=> {
             eventsUpdated: {
                 type: DataTypes.INTEGER.UNSIGNED,
                 allowNull: true,
-                set: (val)=> {
+                set:function (val) {
                     this.setDataValue('eventsUpdated', val);
                     this.setDataValue('eventsUpdatedAt', new Date());
                 }
