@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes)=> {
         },
         labelId: {
             type: DataTypes.INTEGER.UNSIGNED,
-            allowNull: true
+            defaultValue: 0
         },
         orginal: {
             type: DataTypes.BOOLEAN,
