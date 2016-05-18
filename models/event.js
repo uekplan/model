@@ -7,54 +7,67 @@ module.exports = (sequelize, DataTypes)=> {
                 primaryKey: true
             },
             date: {
-                type: DataTypes.DATEONLY
+                type: DataTypes.DATEONLY,
+                allowNull: false,
+
             },
             day: {
-                type: DataTypes.INTEGER(1).UNSIGNED
+                type: DataTypes.INTEGER(1).UNSIGNED,
+                allowNull: false,
             },
             from: {
-                type: DataTypes.STRING(5)
+                type: DataTypes.STRING(5),
+                allowNull: false,
             },
             to: {
-                type: DataTypes.STRING(5)
+                type: DataTypes.STRING(5),
+                allowNull: false,
             },
             activityId: {
                 type: DataTypes.INTEGER.UNSIGNED,
+                allowNull: false,
                 defaultValue: 0
 
             },
             typeId: {
                 type: DataTypes.INTEGER.UNSIGNED,
+                allowNull: false,
                 defaultValue: 0
 
             },
             tutorId: {
                 type: DataTypes.INTEGER.UNSIGNED,
+                allowNull: false,
                 defaultValue: 0
 
             },
             placeId: {
                 type: DataTypes.INTEGER.UNSIGNED,
+                allowNull: false,
                 defaultValue: 0
 
             },
             groupId: {
                 type: DataTypes.INTEGER.UNSIGNED,
+                allowNull: false,
                 defaultValue: 0
 
             },
             noteId: {
                 type: DataTypes.INTEGER.UNSIGNED,
+                allowNull: false,
                 defaultValue: 0
 
             },
             blocks: {
                 type: DataTypes.INTEGER.UNSIGNED,
+                allowNull: false,
                 defaultValue: 0
 
             },
             deleted: {
                 type: DataTypes.BOOLEAN,
+                allowNull: false,
                 defaultValue: 0
             }
         },
