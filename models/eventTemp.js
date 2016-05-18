@@ -49,7 +49,7 @@ module.exports = (sequelize, DataTypes) => {
 
         },
         blocks: {
-            type: DataTypes.INTEGER(2).UNSIGNED
+            type: DataTypes.INTEGER(2).UNSIGNED,
             allowNull: true,
             defaultValue: 0
         }
