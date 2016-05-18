@@ -15,7 +15,9 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.ENUM,
             values: Object.keys(LABEL_TYPES).map((k)=> {
                 return LABEL_TYPES[k]
-            })
+            }),
+            allowNull: false,
+            defaultValue: LABEL_TYPES.UNKNOWN
         }
     }, {
         timestamps: false,

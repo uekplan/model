@@ -20,6 +20,7 @@ module.exports = (sequelize, DataTypes)=> {
             values: Object.keys(LABEL_TYPES).map((k)=> {
                 return LABEL_TYPES[k]
             }),
+            allowNull: false,
             defaultValue: LABEL_TYPES.UNKNOWN
         },
         parentText: {
@@ -28,10 +29,12 @@ module.exports = (sequelize, DataTypes)=> {
         },
         labelId: {
             type: DataTypes.INTEGER.UNSIGNED,
+            allowNull: false,
             defaultValue: 0
         },
         orginal: {
             type: DataTypes.BOOLEAN,
+            allowNull: false,
             defaultValue: true
         }
     }, {

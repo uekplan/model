@@ -8,8 +8,7 @@ module.exports = (sequelize, DataTypes)=> {
             },
             date: {
                 type: DataTypes.DATEONLY,
-                allowNull: false,
-
+                allowNull: false
             },
             day: {
                 type: DataTypes.INTEGER(1).UNSIGNED,
@@ -24,37 +23,37 @@ module.exports = (sequelize, DataTypes)=> {
                 allowNull: false,
             },
             activityId: {
-                type: DataTypes.INTEGER.UNSIGNED.ZEROFILL,
+                type: DataTypes.INTEGER.UNSIGNED,
                 allowNull: false,
                 defaultValue: 0
             },
             typeId: {
-                type: DataTypes.INTEGER.UNSIGNED.ZEROFILL,
+                type: DataTypes.INTEGER.UNSIGNED,
                 allowNull: false,
                 defaultValue: 0
             },
             tutorId: {
-                type: DataTypes.INTEGER.UNSIGNED.ZEROFILL,
+                type: DataTypes.INTEGER.UNSIGNED,
                 allowNull: false,
                 defaultValue: 0
             },
             placeId: {
-                type: DataTypes.INTEGER.UNSIGNED.ZEROFILL,
+                type: DataTypes.INTEGER.UNSIGNED,
                 allowNull: false,
                 defaultValue: 0
             },
             groupId: {
-                type: DataTypes.INTEGER.UNSIGNED.ZEROFILL,
+                type: DataTypes.INTEGER.UNSIGNED,
                 allowNull: false,
                 defaultValue: 0
             },
             noteId: {
-                type: DataTypes.INTEGER.UNSIGNED.ZEROFILL,
+                type: DataTypes.INTEGER.UNSIGNED,
                 allowNull: false,
                 defaultValue: 0
             },
             blocks: {
-                type: DataTypes.INTEGER.UNSIGNED.ZEROFILL,
+                type: DataTypes.INTEGER.UNSIGNED,
                 allowNull: false,
                 defaultValue: 0
             },
@@ -77,8 +76,7 @@ module.exports = (sequelize, DataTypes)=> {
                     'tutorId',
                     'placeId',
                     'groupId',
-                    'noteId',
-                    'blocks']
+                    'noteId']
             }],
             classMethods: {
                 associate: (models) => {

@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-    var EventTemp = sequelize.define('eventtemp', {
+    var EventTemp = sequelize.define('event_temp', {
         id: {
             type: DataTypes.INTEGER.UNSIGNED,
             autoIncrement: true,
@@ -23,37 +23,37 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         activityId: {
-            type: DataTypes.INTEGER.UNSIGNED.ZEROFILL,
+            type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false,
             defaultValue: 0
         },
         typeId: {
-            type: DataTypes.INTEGER.UNSIGNED.ZEROFILL,
+            type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false,
             defaultValue: 0
         },
         tutorId: {
-            type: DataTypes.INTEGER.UNSIGNED.ZEROFILL,
+            type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false,
             defaultValue: 0
         },
         placeId: {
-            type: DataTypes.INTEGER.UNSIGNED.ZEROFILL,
+            type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false,
             defaultValue: 0
         },
         groupId: {
-            type: DataTypes.INTEGER.UNSIGNED.ZEROFILL,
+            type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false,
             defaultValue: 0
         },
         noteId: {
-            type: DataTypes.INTEGER.UNSIGNED.ZEROFILL,
+            type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false,
             defaultValue: 0
         },
         blocks: {
-            type: DataTypes.INTEGER(2).UNSIGNED.ZEROFILL,
+            type: DataTypes.INTEGER(2).UNSIGNED,
             allowNull: false,
             defaultValue: 0
         }
@@ -70,8 +70,7 @@ module.exports = (sequelize, DataTypes) => {
                 'tutorId',
                 'placeId',
                 'groupId',
-                'noteId',
-                'blocks']
+                'noteId']
         }],
         engine: 'MYISAM'
     });
