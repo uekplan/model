@@ -23,45 +23,38 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         activityId: {
-            type: DataTypes.INTEGER.UNSIGNED,
+            type: DataTypes.INTEGER.UNSIGNED.ZEROFILL,
             allowNull: false,
             defaultValue: 0
-
         },
         typeId: {
-            type: DataTypes.INTEGER.UNSIGNED,
+            type: DataTypes.INTEGER.UNSIGNED.ZEROFILL,
             allowNull: false,
             defaultValue: 0
-
         },
         tutorId: {
-            type: DataTypes.INTEGER.UNSIGNED,
+            type: DataTypes.INTEGER.UNSIGNED.ZEROFILL,
             allowNull: false,
             defaultValue: 0
-
         },
         placeId: {
-            type: DataTypes.INTEGER.UNSIGNED,
+            type: DataTypes.INTEGER.UNSIGNED.ZEROFILL,
             allowNull: false,
             defaultValue: 0
-
         },
         groupId: {
-            type: DataTypes.INTEGER.UNSIGNED,
+            type: DataTypes.INTEGER.UNSIGNED.ZEROFILL,
             allowNull: false,
             defaultValue: 0
-
         },
         noteId: {
-            type: DataTypes.INTEGER.UNSIGNED,
+            type: DataTypes.INTEGER.UNSIGNED.ZEROFILL,
             allowNull: false,
             defaultValue: 0
-
         },
         blocks: {
-            type: DataTypes.INTEGER(2).UNSIGNED,
+            type: DataTypes.INTEGER(2).UNSIGNED.ZEROFILL,
             allowNull: false,
-            allowNull: true,
             defaultValue: 0
         }
     }, {
