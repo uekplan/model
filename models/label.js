@@ -44,7 +44,7 @@ module.exports = (sequelize, DataTypes)=> {
             associate: (models) => {
                 Label.belongsTo(Label, {
                     as: 'label',
-                    foreginKey: 'parentId',
+                    foreginKey: 'labelId',
                     targetKey: 'id',
                     constraints: false
                 });
@@ -60,7 +60,7 @@ module.exports = (sequelize, DataTypes)=> {
                 Label.hasMany(Label, {
                     as: 'labels',
                     foreginKey: 'id',
-                    targetKey: 'parentId',
+                    targetKey: 'labelId',
                     constraints: false
                 });
                 Label.hasMany(models.event, {
