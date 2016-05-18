@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes)=> {
         year: {
             type: DataTypes.INTEGER.UNSIGNED,
             allowNull: true
-        }
+        },
         stream: {
             type: DataTypes.INTEGER.UNSIGNED,
             allowNull: true
