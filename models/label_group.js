@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes)=> {
         rest: {
             type: DataTypes.STRING,
             allowNull: true
-        },
+        }
     }, {
         timestamps: false,
         classMethods: {

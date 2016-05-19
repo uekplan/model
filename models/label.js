@@ -2,10 +2,10 @@
 const LABEL_TYPES = require('./../labelTypes');
 module.exports = (sequelize, DataTypes)=> {
     var Label = sequelize.define('label', {
-
         timetableId: {
             type: DataTypes.INTEGER.UNSIGNED,
-            allowNull: true
+            allowNull: false,
+            defaultValue: 0
         },
         key: {
             type: DataTypes.STRING,
